@@ -1,3 +1,5 @@
+import random
+
 class Playlist:
     def __init__(self, cancion, Estado = "Reproduciendo"):
         self.cancion = cancion
@@ -23,7 +25,7 @@ class Playlist:
             print(f"{j+1}.- {cancion}")
 
     def reproducirCancion(self):
-        
+        print(f"La cancion {self.cancion} se esta reproduciendo!!!")
         pass
 
     def selecCancion(self):
@@ -43,6 +45,7 @@ class Playlist:
         pass
 
     def rep_Cancion_Aleatoria(self):
+
         pass
 
     def verEstado_playlist(self):
@@ -52,3 +55,19 @@ class Playlist:
         pass
         
 
+while True:
+    print("------------Bienvenido a tu playlist-----------")
+    print("1.- Añadir cancion.")
+    print("2.- Eliminar cancion.")
+    print("3.- Reproduccion.")
+    opcion = int(input("\nSeleccione una opción: "))
+
+    if opcion == 1:
+        Playlist.anadirCancion()
+    elif opcion == 2:
+        Playlist.eliminarCancion()
+    elif opcion == 3:
+        print("a)")
+
+
+        
