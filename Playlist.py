@@ -16,21 +16,24 @@ class Playlist:
             self.canciones.remove(cancion)
 
     def mostrarCanciones(self):
-        print(f"Canciones en {self.canciones}")
+        if not self.canciones:
+            print("No hay canciones en la playlist.")
+            return
+        print(f"Canciones en {self.nombre}")
         for i, cancion in enumerate(self.canciones):
-            print(f"{i}.- {cancion}")
+            print(f"{i+1}.- {cancion}")
 
     def reproducirCancion(self):
         if not self.canciones:
             print("No hay canciones en la playlist.")
             return
         
-        if self.estado == "Detenido":
-            self.estado == "Reproduciendo"
+        if self.Estado == "Detenido":
+            self.Estado == "Reproduciendo"
             self.indiceActual == 0
             print(f"Reproduciendo {self.canciones[0]}.")
-        elif self.estado == "Pausa":
-            self.estado == "Reproduciendo"
+        elif self.Estado == "Pausa":
+            self.Estado == "Reproduciendo"
             print(f"Reanudando reproduccion de la cancion {self.canciones[self.indiceActual]}.")
         else:
             print("Ya se esta reproduciendo una cancion.")
@@ -129,34 +132,35 @@ while True:
 
     if opcion == 1:
         cancion = input("Ingrese el nombre de la cancion: ")
-        Playlist.anadirCancion()
+        miPlaylist.anadirCancion(cancion)
         print(f"La cancion {cancion} ha sido añadida: ")
     elif opcion == 2:
-        Playlist.mostrarCanciones()
+        miPlaylist.mostrarCanciones()
         cancion = input("Ingrese el nombre de la cancion a eliminar")
-        Playlist.eliminarCancion()
+        miPlaylist.eliminarCancion()
         print(f"La cancion {cancion} ha sido eliminada.")
     elif opcion == 3:
-        Playlist.mostrarCanciones()
+        miPlaylist.mostrarCanciones()
     elif opcion == 4:
-        Playlist.reproducirCancion()
+        miPlaylist.reproducirCancion()
     elif opcion == 5:
+        miPlaylist.mostrarCanciones()
         indice = int(input("Ingrese el indice de la cancion a seleccionar: "))
-        Playlist.selecCancion(indice - 1)
+        miPlaylist.selecCancion(indice - 1)
     elif opcion == 6:
-        Playlist.pausarCancion()
+        miPlaylist.pausarCancion()
     elif opcion == 7:
-        Playlist.detenerCancion()
+        miPlaylist.detenerCancion()
     elif opcion == 8:
-        Playlist.nextCancion()
+        miPlaylist.nextCancion()
     elif opcion == 9:
-        Playlist.backCancion()
+        miPlaylist.backCancion()
     elif opcion == 10:
-        Playlist.rep_Cancion_Aleatoria()
+        miPlaylist.rep_Cancion_Aleatoria()
     elif opcion == 11:
-        Playlist.verEstado()
+        miPlaylist.verEstado()
     elif opcion == 12:
-        Playlist.verCancion_reproducida()
+        miPlaylist.verCancion_reproducida()
     elif opcion == 13:
         print("Saliendo del programa...")
         break
